@@ -29,3 +29,13 @@ function count(text, pattern) {
   // console.log(arr)
   // return text;
 }
+
+function count(text, pattern) {
+  // We use a lookahead (?=) to find overlapping matches
+  // 'g' means global (find all)
+  const regex = new RegExp(`(?=${pattern})`, 'g');
+  const matches = text.matchAll(regex);
+
+  // Convert the iterator to an array and return the length
+  return Array.from(matches).length;
+}
